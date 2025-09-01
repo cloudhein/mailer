@@ -4,6 +4,12 @@ on:
     branches: ['main']
     types: [opened, synchronize, reopened]
 
+# Both workflows should have the same concurrency group
+concurrency:
+  group: mailer-ci-${{ github.event.pull_request.number }}
+  cancel-in-progress: true  # Automatically cancel queued workflows
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
