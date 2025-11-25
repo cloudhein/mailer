@@ -24,7 +24,7 @@ jobs:
   mailer-deploy-service:
     if: github.ref == 'refs/heads/main' || (github.event_name == 'pull_request' && github.base_ref == 'main')
     needs: mailer-service-ci
-    uses: cloudhein/workflows/.github/workflows/deploy-jobs.yaml@00f912660609215e6e3d33762d8e951cc80b93ba
+    uses: cloudhein/workflows/.github/workflows/deploy-jobs.yaml@bd81baeea9abdc00bdac1b3cd5ce92d126833809
     with:
       service-name: 'mailer'
       dockerhub-username: ${{ vars.DOCKERHUB_USERNAME }}
