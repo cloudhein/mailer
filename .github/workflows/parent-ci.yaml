@@ -3,6 +3,24 @@ on:
   pull_request:
     branches: ['main','develop/*']
     types: [opened, synchronize, reopened]
+    paths:
+      # 1. The Entry Point
+      - 'cmd/mailer/**'
+
+      # 2. The Core Logic (CRITICAL)
+      - 'internal/**'
+
+      # 3. Dependencies & Build Config
+      - 'go.mod'
+      - 'go.sum'
+      - 'Dockerfile'
+      - 'Makefile'
+
+      # 4. Quality Gate Config
+      - 'sonar-project.properties'
+
+      # 5. Pipeline Logic
+      - '.github/workflows/**'  
 
 # Both workflows should have the same concurrency group
 concurrency:
