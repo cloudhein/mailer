@@ -4,6 +4,7 @@ on:
     branches: ['main','develop/*']
     types: [opened, synchronize, reopened]
     paths:
+    #### Paths & paths-ignore features do not work on pull_request events but they only work on push events.
       # 1. The Entry Point
       - 'cmd/mailer/**'
 
@@ -20,7 +21,7 @@ on:
       - 'sonar-project.properties'
 
       # 5. Pipeline Logic
-      - '.github/workflows/**'  
+      - '.github/workflows/**'
 
 # Both workflows should have the same concurrency group
 concurrency:
