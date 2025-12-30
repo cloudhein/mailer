@@ -4,6 +4,7 @@ on:
     branches: ['main','develop/*']
     types: [opened, synchronize, reopened]
     paths:
+    #### Paths & paths-ignore features do not work on pull_request events but they only work on push events.
       # 1. The Entry Point
       - 'cmd/mailer/**'
 
@@ -22,24 +23,12 @@ on:
       # 5. Pipeline Logic
       - '.github/workflows/**'
 
-      # 6. Exclude non-code changes
-      - '!README.md'
-      - '!Dockerfile'
-      - '!.gitignore'
-      - '!VERSION*'
-
 # Both workflows should have the same concurrency group
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true  # Cancel any in-progress runs in the same group and runs only the latest commit
 
 jobs:
-  test-paths-ignore:
-    runs-on: ubuntu-latest
-    steps:
-      - name: This should not run for README/gitignore changes
-        run: echo "Paths filter is NOT working!"
-
   mailer-service-ci:
     uses: cloudhein/workflows/.github/workflows/common-jobs.yaml@012a2b715ba5111dc74bda914344247a40d52eeb
     with:
