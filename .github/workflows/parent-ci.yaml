@@ -16,6 +16,12 @@ concurrency:
   cancel-in-progress: true  # Cancel any in-progress runs in the same group and runs only the latest commit
 
 jobs:
+  test-paths-ignore:
+    runs-on: ubuntu-latest
+    steps:
+      - name: This should not run for README/gitignore changes
+        run: echo "Paths filter is NOT working!"
+
   mailer-service-ci:
     uses: cloudhein/workflows/.github/workflows/common-jobs.yaml@012a2b715ba5111dc74bda914344247a40d52eeb
     with:
