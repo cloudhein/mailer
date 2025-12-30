@@ -207,4 +207,3 @@ We would like to thank the following projects and organizations for their contri
 ## Contact
 
 For any questions or feedback, please contact us at [harryd.io@proton.me](mailto:harryd.io@proton.me).
-
