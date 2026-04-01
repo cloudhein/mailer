@@ -1,6 +1,6 @@
 module harry2an.com/mailer
 
-go 1.22.6
+go 1.25
 
 require (
 	github.com/go-chi/chi/v5 v5.0.8 // indirect
