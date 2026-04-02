@@ -1,4 +1,4 @@
-FROM golang:1.22-alpine AS builder
+FROM golang:1.25-alpine AS builder
 
 ENV CGO_ENABLED=0
 WORKDIR /app
@@ -19,3 +19,4 @@ COPY --from=builder /bin/app /app/app
 EXPOSE 8081
 
 CMD ["/app/app"]
+
